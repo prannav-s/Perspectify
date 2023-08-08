@@ -40,7 +40,7 @@ def analysis(request, instance_id):
     # All these functions will be imported from the 'app/functions' file
     
     
-    summary = summary("We are students") 
+    summary = 'Summary here'
     primary = 'Primary viewpoint here' 
     secondary = 'Secondary viewpoint here'
     resources = 'Resources here'
