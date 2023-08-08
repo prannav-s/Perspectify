@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>Source Analysis</title>
@@ -21,4 +21,79 @@
     <p>{{ resources }}</p>
     
 </body>
+</html> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Source Analysis</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="header-b">
+      <a class="project-name-b" href="index.html"> PERSPECTIFY </a>
+    </div>
+
+    <div class="main-content">
+      <div class="heading-content">
+        <h1>Source Analysis</h1>
+        <p><strong>Original Source: {{ instance.url }}</strong></p>
+      </div>
+      <div class="summay-content item">
+        <h2>Summary</h2>
+        <div class="summary-box">
+          <p>
+            {{ summary }} 
+          </p>
+        </div>
+      </div>
+
+      <div class="viewpoints-content item">
+        <div class="viewpoints-text">
+          <div class="primary-text">
+            <h2>Primary Viewpoints</h2>
+          </div>
+          <div class="secondary-text">
+            <h2>Secondary Viewpoints</h2>
+          </div>
+        </div>
+        <div class="viewpoints-box">
+          <div class="primary-box">
+            <p>
+              {{ primary }} 
+            </p>
+          </div>
+          <div class="secondary-box">
+            <p>
+              {{ secondary }} 
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="additional-content item">
+        <h2>Additional Sources</h2>
+        <div class="resources-box">
+          <p>
+            {{ resources }} 
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-b">
+      <a href="index.html">
+        <img
+          class="footer-item-b"
+          src="{% static 'assets/SureStart.png' %}"
+          alt="SureStart logo"
+      /></a>
+      <a href="index.html"
+        ><img
+          class="footer-item-b"
+          src="{% static 'assets/FutureMakers.png' %}"
+          alt="FutureMakers logo"
+      /></a>
+    </div>
+  </body>
 </html>
