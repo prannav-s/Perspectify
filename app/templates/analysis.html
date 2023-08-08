@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Source Analysis</title>
+</head>
+<body>
+    <h1>Source Analysis</h1>
+    <p><strong>Original Source:</strong></p>
+    <p>{{ instance.url }}</p>
+    
+    <p><strong>Analyzed Output:</strong></p>
+    <p>{{ analyzed_output }}</p>
+    
+    <h2>Edit Link</h2>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="edited_url" rows="6" cols="50">{{ instance.url }}</textarea><br>
+        <button type="submit">Save Edited Link</button>
+    </form>
+</body>
+</html>
