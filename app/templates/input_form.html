@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html>
 <head>
     <title>Link Input Form</title>
@@ -11,4 +11,55 @@
         <button type="submit">Submit</button>
     </form>
 </body>
+</html> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Link Input Form</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body>
+    <div class="header-a">
+      <a class="project-name-a" href="input_form.html"> PERSPECTIFY </a>
+    </div>
+
+    <form method="post">
+      {% comment %} {% csrf_token %} 
+      {{ form.as_p }} {% endcomment %}
+      {% csrf_token %}
+      <input
+          class="input-box"
+          name="input-box"
+          type="url"
+          placeholder="INPUT SOURCE URL TO BE ANALYZED"
+          required=""
+      />
+      {{ form.as_p }}
+      {% comment %} {{ form.as_p }} {% endcomment %}
+      <button type="submit" class="input-button">
+        <img
+          src="{% static 'assets/input-button.png' %}"
+          alt="input button"
+          width="65%"
+          height="65%"
+        />
+      </button>
+    </form>
+
+    <div class="footer-a">
+      <a href="index.html">
+        <img
+          class="footer-item-a"
+          src="{% static 'assets/SureStart.png' %}"
+          alt="SureStart logo"
+      /></a>
+      <a href="index.html"
+        ><img
+          class="footer-item-a"
+          src="{% static 'assets/FutureMakers.png' %}"
+          alt="FutureMakers logo"
+      /></a>
+    </div>
+  </body>
 </html>
