@@ -8,14 +8,17 @@
     <p><strong>Original Source:</strong></p>
     <p>{{ instance.url }}</p>
     
-    <p><strong>Analyzed Output:</strong></p>
+    <p><strong>Summary:</strong></p>
     <p>{{ analyzed_output }}</p>
+
+    <p><strong>Primary Viewpoint:</strong></p>
+    <p>{{ primary }}</p>
+
+    <p><strong>Secondary Viewpoint:</strong></p>
+    <p>{{ secondary }}</p>
+
+    <p><strong>Additional sources:</strong></p>
+    <p>{{ resources }}</p>
     
-    <h2>Edit Link</h2>
-    <form method="post">
-        {% csrf_token %}
-        <textarea name="edited_url" rows="6" cols="50">{{ instance.url }}</textarea><br>
-        <button type="submit">Save Edited Link</button>
-    </form>
 </body>
 </html>
