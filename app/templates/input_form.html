@@ -19,24 +19,29 @@
     <title>Link Input Form</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-  <body>
+  <body style="background-image: url('{% static 'assets/background.png' %}'); background-repeat: repeat-y; background-size: cover; font-family: 'Fira Sans Condensed', sans-serif;">
+
     <div class="header-a">
       <a class="project-name-a" href="input_form.html"> PERSPECTIFY </a>
     </div>
 
     <form method="post">
-      {% comment %} {% csrf_token %} 
-      {{ form.as_p }} {% endcomment %}
       {% csrf_token %}
+      
+      <!-- Custom-styled input -->
       <input
           class="input-box"
-          name="input-box"
+          name="url"
           type="url"
           placeholder="INPUT SOURCE URL TO BE ANALYZED"
           required=""
       />
-      {{ form.as_p }}
-      {% comment %} {{ form.as_p }} {% endcomment %}
+      
+      <!-- Django form field -->
+      {{ form.url_field.label_tag }}
+      {{ form.url_field }}
+      
+      <!-- Submit button -->
       <button type="submit" class="input-button">
         <img
           src="{% static 'assets/input-button.png' %}"
@@ -48,17 +53,11 @@
     </form>
 
     <div class="footer-a">
-      <a href="index.html">
+      <a href="https://mysurestart.com/" target="blank_">
         <img
           class="footer-item-a"
-          src="{% static 'assets/SureStart.png' %}"
+          src="{% static 'assets/SureStartFutureMakers.png' %}"
           alt="SureStart logo"
-      /></a>
-      <a href="index.html"
-        ><img
-          class="footer-item-a"
-          src="{% static 'assets/FutureMakers.png' %}"
-          alt="FutureMakers logo"
       /></a>
     </div>
   </body>
