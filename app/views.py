@@ -42,9 +42,9 @@ def analysis(request, instance_id):
     # All these functions will be imported from the 'app/functions' file
     
     
-    summary = 'Summary: ' + text.lower()
-    primary = 'Primary viewpoint: ' + text.upper() 
-    secondary = 'Secondary viewpoint here ' + text.capitalize()
+    summary = text.lower()
+    primary = text.upper() 
+    secondary = text.capitalize()
     resources = text.split('.')[:5]
     
     
