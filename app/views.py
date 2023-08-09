@@ -42,7 +42,9 @@ def analysis(request, instance_id):
     # All these functions will be imported from the 'app/functions' file
     
     
-    summary = text.lower()
+    # The following lines will be later calling each function for each feature.
+    # These are just demos to show on the website
+    summary = text.lower() 
     primary = text.upper() 
     secondary = text.capitalize()
     resources = text.split('.')[:5]
