@@ -29,15 +29,16 @@
     <title>Source Analysis</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
   </head>
-  <body>
+  <body style="background-image: url('{% static 'assets/background.png' %}'); background-repeat: repeat-y; background-size: cover; font-family: 'Fira Sans Condensed', sans-serif;">
+
     <div class="header-b">
-      <a class="project-name-b" href="index.html"> PERSPECTIFY </a>
+      <a class="project-name-b" href="input_form.html"> PERSPECTIFY </a>
     </div>
 
     <div class="main-content">
       <div class="heading-content">
         <h1>Source Analysis</h1>
-        <p><strong>Original Source: {{ instance.url }}</strong></p>
+        <p><strong>Original Source: <a href="{{ instance.url }}">{{ instance.url }}</a></strong></p>
       </div>
       <div class="summay-content item">
         <h2>Summary</h2>
@@ -72,28 +73,31 @@
       </div>
 
       <div class="additional-content item">
-        <h2>Additional Sources: </h2>
+        <h2>Additional Sources:</h2>
         <div class="resources-box">
-          <p>
-            {{ resources }} 
-          </p>
+            <ul>
+              {% for resource in resources %}
+                  <li><a href="{{ resource }}">{{ resource }}</a></li>
+              {% endfor %}
+            </ul>
         </div>
       </div>
+    
     </div>
 
     <div class="footer-b">
-      <a href="index.html">
+      <a href="https://mysurestart.com/" target="blank_">
         <img
           class="footer-item-b"
-          src="{% static 'assets/SureStart.png' %}"
+          src="{% static 'assets/SureStartFutureMakers.png' %}"
           alt="SureStart logo"
       /></a>
-      <a href="index.html"
+      <!-- <a href="index.html"
         ><img
           class="footer-item-b"
-          src="{% static 'assets/FutureMakers.png' %}"
+          src="assets/FutureMakers.png"
           alt="FutureMakers logo"
-      /></a>
+      /></a> -->
     </div>
   </body>
 </html>
