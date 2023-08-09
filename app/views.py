@@ -47,7 +47,7 @@ def analysis(request, instance_id):
     summary = text.lower() 
     primary = text.upper() 
     secondary = text.capitalize()
-    resources = text.split('.')[:5]
+    resources = text.split('.')[:5] # Later will be links to actual sites.
     
     
     if request.method == 'POST':
