@@ -2,7 +2,16 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from .forms import TextInputForm
 from .models import TextInput
-from .functions import summary, WebScrape
+from .functions import WebScrape, generate_prompt
+import openai
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+openai.api_key = os.environ.get("OPENAI_API_KEY")
+# openai.api_key_path = '/Users/robelmelaku/Desktop/Perspectify/app/.env'
 
 def index(request):
     return render(request, 'index.html')
@@ -15,6 +24,9 @@ def input_form(request):
             instance = form.save()
             return redirect('analysis', instance_id=instance.id)
     return render(request, 'input_form.html', {'form': form})
+
+
+
 
 def analysis(request, instance_id):
     instance = TextInput.objects.get(id=instance_id)
@@ -44,14 +56,24 @@ def analysis(request, instance_id):
     
     # The following lines will be later calling each function for each feature.
     # These are just demos to show on the website
-    summary = text.lower() 
+    summary = 'Initial summary'
     primary = text.upper() 
     secondary = text.capitalize()
     resources = text.split('.')[:5] # Later will be links to actual sites.
+     
     
+    # if request.method == 'POST':
+    #     instance.text = request.POST.get('edited_url')
+    #     instance.save()
+    #     return redirect('analysis', instance_id=instance_id)
     
-    if request.method == 'POST':
-        instance.text = request.POST.get('edited_url')
-        instance.save()
-        return redirect('analysis', instance_id=instance_id)
+
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=generate_prompt(text),
+        temperature=0.6,
+    )
+    summary = response.choices[0].text if response.choices else "No summary generated."
+
+    
     return render(request, 'analysis.html', {'instance': instance, 'summary': summary, 'primary': primary, 'secondary': secondary, 'resources': resources})
