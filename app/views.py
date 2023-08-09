@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from .forms import TextInputForm
 from .models import TextInput
-from .functions import summary
+from .functions import summary, WebScrape
 
 def index(request):
     return render(request, 'index.html')
@@ -14,8 +14,6 @@ def input_form(request):
         if form.is_valid():
             instance = form.save()
             return redirect('analysis', instance_id=instance.id)
-    else:
-        form = TextInputForm()
     return render(request, 'input_form.html', {'form': form})
 
 def analysis(request, instance_id):
@@ -26,6 +24,10 @@ def analysis(request, instance_id):
 
     # First we need to call the function that will scrape the link
     # text = scrape_function(instance.url)
+    myscraper = WebScrape()
+    web_page = myscraper.fetch_url(instance.url)
+    text = myscraper.parse_html_content(web_page)
+    
     
     # Second we need to call the summary function to summarize the text
     # summary = summary_function(text)
@@ -40,10 +42,10 @@ def analysis(request, instance_id):
     # All these functions will be imported from the 'app/functions' file
     
     
-    summary = 'Summary here'
-    primary = 'Primary viewpoint here' 
-    secondary = 'Secondary viewpoint here'
-    resources = 'Resources here'
+    summary = 'Summary: ' + text.lower()
+    primary = 'Primary viewpoint: ' + text.upper() 
+    secondary = 'Secondary viewpoint here ' + text.capitalize()
+    resources = text.split('.')[:5]
     
     
     if request.method == 'POST':
