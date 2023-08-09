@@ -1,5 +1,6 @@
 import os
 import openai
+from .WebScrape import WebScrape
 
 openai.api_key = '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'
 
