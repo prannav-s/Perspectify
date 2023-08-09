@@ -18,13 +18,14 @@ def summary(text):
     return response
 
 def primary_function(text):
+    # Return a text of primary viewpoint
     pass
 
 def secondary_function(text):
+    # Return a text of secondary viewpoint
     pass
 
 def resources(viewpoints):
-    # I think it would be easier if the input for this function would just be a list of 
-    # like phrases of the viewpoints so as to make it easier to render links from ChatGPT
+    # Return a list of strings of additional resource links
     pass
     
