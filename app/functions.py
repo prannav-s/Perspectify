@@ -2,13 +2,15 @@ import os
 import openai
 from .WebScrape import WebScrape
 
-openai.api_key = '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'
-
 
 
 def generate_prompt(text):
-    return f"""You will summarize an article given the text from it, and remove any bias from the summary in the process. 
-    You will then give a rating based on how biased the original article was from one to ten, with ten being the most biased. At the end give sources for alternative news articles about the same event. {text.capitalize()}"""
+    return f"""You will summarize an article given the text from it. 
+    
+    At the end give sources for alternative news articles from different sources ONLY in the form of websites about the same event.
+    Do this in the format: Alternative news sources: numbered list of sources
+    Only recommend reputable sources. 
+    Do not recommend any social medias. {text.capitalize()}"""
     
 # Function to make the summary
 # def summary(text):
