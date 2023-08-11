@@ -9,7 +9,7 @@ import os
 
 # Load environment variables from .env file
 
-env_file_path = ".env"
+env_file_path = "app/.env"
 
 # Read the API key from the .env file
 openai.api_key = None
