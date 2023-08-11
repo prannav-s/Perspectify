@@ -4,14 +4,32 @@ from .forms import TextInputForm
 from .models import TextInput
 from .functions import WebScrape, generate_prompt
 import openai
+import re
 import os
-from dotenv import load_dotenv
 
 # Load environment variables from .env file
-load_dotenv()
 
-openai.api_key = os.environ.get("OPENAI_API_KEY")
+env_file_path = ".env"
+
+# Read the API key from the .env file
+openai.api_key = None
+with open(env_file_path, "r") as env_file:
+    for line in env_file:
+        if line.startswith("OPENAI_API_KEY="):
+            openai.api_key = line.strip().split("=")[1]
+            break
+
 # openai.api_key_path = '/Users/robelmelaku/Desktop/Perspectify/app/.env'
+
+def extract_links_from_text(text):
+    # Using regular expression to find URLs in the text
+    urls = re.findall(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
+    return urls
+
+def remove_alternative_sources_and_after(text):
+    # Remove all text after the sentence starting with "Alternative news sources: "
+    modified_text = text.split("Alternative news sources: ")[0]
+    return modified_text
 
 def index(request):
     return render(request, 'index.html')
@@ -57,8 +75,8 @@ def analysis(request, instance_id):
     # The following lines will be later calling each function for each feature.
     # These are just demos to show on the website
     summary = 'Initial summary'
-    primary = text.upper() 
-    secondary = text.capitalize()
+    primary = text
+    secondary = text
     resources = text.split('.')[:5] # Later will be links to actual sites.
      
     
@@ -71,10 +89,24 @@ def analysis(request, instance_id):
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt=generate_prompt(text),
-        temperature=0.6,
+        temperature=0.0,
+        max_tokens=500,  # Adjust this value as needed
+
     )
     summary = "".join([i.text for i in response.choices ]) if response.choices else "No summary generated." 
 
 
+    summary_links = extract_links_from_text(summary)
     
+    resources = summary_links[2:]
+    summary = remove_alternative_sources_and_after(summary)
+
+    # primaryscraper = WebScrape()
+    # primarypage = primaryscraper.fetch_url(summary_links[2])
+    # primary = primaryscraper.parse_html_content(primarypage)
+    # secondaryscraper = WebScrape()
+    # secondarypage = secondaryscraper.fetch_url(summary_links[3])
+    # secondary = secondaryscraper.parse_html_content(secondarypage)
+    primary = summary_links[0]
+    secondary = summary_links[1]
     return render(request, 'analysis.html', {'instance': instance, 'summary': summary, 'primary': primary, 'secondary': secondary, 'resources': resources})
