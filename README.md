@@ -23,7 +23,7 @@ Perspectify is a tool designed to make the consumption and understanding of onli
 Run the following commands on your local machine:
 
 ```
-git clone https://github.com/PrannavS/Perspectify.git
+git clone https://github.com/prannav-s/Perspectify.git
 pipenv django
 pip shell
 ```
