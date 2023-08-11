@@ -1,16 +1,60 @@
 from django.shortcuts import render, redirect
-# Create your views here.
 from .forms import TextInputForm
 from .models import TextInput
-from .functions import *
+from .functions import WebScrape, generate_prompt
 import openai
+import re
 import os
-from dotenv import load_dotenv
+
+try:
+	from googlesearch import search
+except ImportError:
+	print("No module named 'google' found")
+
+env_file_path = ".env"
 
 # Read the API key from the .env file
-load_dotenv()
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = None
+with open(env_file_path, "r") as env_file:
+    for line in env_file:
+        if line.startswith("OPENAI_API_KEY="):
+            openai.api_key = line.strip().split("=")[1]
+            break
 
+# openai.api_key_path = '/Users/robelmelaku/Desktop/Perspectify/app/.env'
+def generate_summary(text):     
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=f"Summarize the following content:\n{text}",
+        temperature=0.0,
+        max_tokens=500  # Adjust the number of tokens as needed
+        )
+    return response.choices[0].text.strip()
+
+def create_links(term):
+    query = term
+    search_query = f"{query} filetype:html"
+    i = 0
+    links = ["Not Found"] * 10
+    for j in search(search_query, tld="co.in", num=10, stop=10, pause=2):
+        links[i] = j
+        i += 1
+        if i >= 10:
+            break
+    return links
+
+def create_viewpoint(links, i):
+    scraper = WebScrape()
+    page = scraper.fetch_url(links[i])
+    viewpoint = scraper.parse_html_content(page)
+    return generate_summary(viewpoint) + " Link: " + links[i]
+
+def find_search_term(text):
+    search = text.split("Search term: ")
+    return search
+
+def index(request):
+    return render(request, 'index.html')
 
 def input_form(request):
     form = TextInputForm()
@@ -21,16 +65,11 @@ def input_form(request):
             return redirect('analysis', instance_id=instance.id)
     return render(request, 'input_form.html', {'form': form})
 
-
 def analysis(request, instance_id):
     instance = TextInput.objects.get(id=instance_id)
-    
-
-    # Call the function that will scrape the link
     myscraper = WebScrape()
     web_page = myscraper.fetch_url(instance.url)
     text = myscraper.parse_html_content(web_page)
-
 
     response = openai.Completion.create(
         model="text-davinci-003",
@@ -39,18 +78,12 @@ def analysis(request, instance_id):
         max_tokens=500,  # Adjust this value as needed
 
     )
-    
-    # Call function to generate summary from the scraped text
-    summary = "".join([i.text for i in response.choices ]) if response.choices else "No summary generated." 
-    summary = remove_alternative_sources_and_after(summary)
+    summary = response.choices[0].text if response.choices else "No summary generated."
+    term = find_search_term(summary)[1]
+    summary = find_search_term(summary)[0]
+    summary_links = create_links(term)
+    resources = summary_links
+    primary = create_viewpoint(summary_links, 0)
+    secondary = create_viewpoint(summary_links, 1)
 
-    # Generate additional resources for requested source
-    summary_links = extract_links_from_text(summary)
-    resources = summary_links[2:]
-    
-    # Generate primary and secondary viewpoints for requested analysis
-    primary = summary_links[0]
-    secondary = summary_links[1]
-    
-    # Render each element using the written templates
     return render(request, 'analysis.html', {'instance': instance, 'summary': summary, 'primary': primary, 'secondary': secondary, 'resources': resources})
