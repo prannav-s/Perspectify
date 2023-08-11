@@ -73,7 +73,8 @@ def analysis(request, instance_id):
         prompt=generate_prompt(text),
         temperature=0.6,
     )
-    summary = response.choices[0].text if response.choices else "No summary generated."
+    summary = "".join([i.text for i in response.choices ]) if response.choices else "No summary generated." 
+
 
     
     return render(request, 'analysis.html', {'instance': instance, 'summary': summary, 'primary': primary, 'secondary': secondary, 'resources': resources})
