@@ -4,19 +4,12 @@ from .forms import TextInputForm
 from .models import TextInput
 from .functions import *
 import openai
-import re
 import os
-
-# Load environment variables from .env file
-env_file_path = "app/.env"
+from dotenv import load_dotenv
 
 # Read the API key from the .env file
-openai.api_key = None
-with open(env_file_path, "r") as env_file:
-    for line in env_file:
-        if line.startswith("OPENAI_API_KEY="):
-            openai.api_key = line.strip().split("=")[1]
-            break
+load_dotenv()
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
 def input_form(request):
