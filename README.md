@@ -31,7 +31,9 @@ pip shell
 After cloning the repository, create a .env file in the main directory and set the value of OPENAI_API_KEY to your secret API KEY. You can acquire this key from your OpenAI account at https://platform.openai.com/account/api-keys.
 
 ```
-OPENAI_API_KEY = 'YOUR-API-KEY'
+pipenv install python-dotenv
+
+set OPENAI_API_KEY = 'YOUR-API-KEY' in .env file
 ```
 
 Once you have the configurations set up, perform the following commands to run the program:
