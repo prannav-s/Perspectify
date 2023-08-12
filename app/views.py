@@ -11,7 +11,7 @@ try:
 except ImportError:
 	print("No module named 'google' found")
 
-env_file_path = ".env"
+env_file_path = "app/.env"
 
 # Read the API key from the .env file
 openai.api_key = None
