@@ -125,8 +125,9 @@ button:focus {
 .footer-a {
   position: fixed;
   bottom: 0;
-  left: 40%;
-  right: 40%;
+  left: 0%;
+  right: 0%;
+  text-align: center;
 }
 .footer-item-a {
   margin: 5px;
@@ -269,9 +270,11 @@ button:focus {
 .footer-b {
   position: relative;
   bottom: 0;
-  margin-left: 40%;
-  margin-bottom: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .footer-item-b {
   margin: 5px;
   padding: 10px 3px;
