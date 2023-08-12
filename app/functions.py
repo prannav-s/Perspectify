@@ -5,10 +5,10 @@ from .WebScrape import WebScrape
 
 
 def generate_prompt(text):
-    return f"""You will summarize an article given the text from it. 
+    return f"""You will summarize the given text thoroughly and with great detail, using examples from the text
     
     At the end give a search term that the user could enter into google to learn more about the given topic of the article.
-    Do this in the format: Search term: {text.capitalize()}"""
+    Do this in the format- Search:  {text.capitalize()}"""
     
 # Function to make the summary
 # def summary(text):

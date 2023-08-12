@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Fira+Sans+Condensed:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend&family=Fira+Sans+Condensed:wght@300&display=swap');
 
 /* body {
   background-image: url("../assets/background.png");
@@ -21,7 +21,7 @@
   font-size: 60px;
   text-decoration: none;
   color: white;
-  font-family: "Darumadrop One", cursive;
+  font-family: "Lexend", sans-serif;
 }
 
 /* FORM/INPUT */
@@ -147,7 +147,7 @@ button:focus {
   font-size: 45px;
   text-decoration: none;
   color: white;
-  font-family: "Darumadrop One", cursive;
+  font-family: "Lexend", sans-serif;
 }
 
 .main-content {
@@ -157,7 +157,7 @@ button:focus {
 .main-content h2 {
   font-size: 24px;
   margin: 10px 100px;
-  font-family: "Darumadrop One", cursive;
+  font-family: "Lexend", sans-serif;
   color: rgba(250, 250, 250, 1);
 }
 
@@ -174,7 +174,7 @@ button:focus {
 }
 
 .heading-content h1 {
-  font-family: "Darumadrop One", cursive;
+  font-family: "Lexend", sans-serif;
   margin: 0;
 
 }
@@ -256,7 +256,7 @@ button:focus {
 }
 
 .resources-box ul {
-  list-style-type: disc; /* Use 'disc' for bullet points, 'circle' for hollow circles, or 'square' for square bullets */
+  list-style-type: circle; /* Use 'disc' for bullet points, 'circle' for hollow circles, or 'square' for square bullets */
   padding-left: 20px; /* Adjust as needed */
 }
 

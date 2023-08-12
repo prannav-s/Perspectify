@@ -21,7 +21,6 @@ with open(env_file_path, "r") as env_file:
             openai.api_key = line.strip().split("=")[1]
             break
 
-# openai.api_key_path = '/Users/robelmelaku/Desktop/Perspectify/app/.env'
 def generate_summary(text):     
     response = openai.Completion.create(
         model="text-davinci-003",
@@ -50,7 +49,7 @@ def create_viewpoint(links, i):
     return generate_summary(viewpoint) + " Link: " + links[i]
 
 def find_search_term(text):
-    search = text.split("Search term: ")
+    search = text.split("Search: ")
     return search
 
 def index(request):
