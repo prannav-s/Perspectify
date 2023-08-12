@@ -30,16 +30,25 @@ def generate_summary(text):
         )
     return response.choices[0].text.strip()
 
-def create_links(term):
+def unique_link(link, domains):
+    pattern = r'www\.([^.]+)\.com'
+    domain = re.findall(pattern, link)
+    if domains.__contains__(domain):
+        return False
+    domains.append(domain)
+    return True
+
+def create_links(term, domains):
     query = term
     search_query = f"{query} filetype:html"
     i = 0
-    links = ["Not Found"] * 10
-    for j in search(search_query, tld="co.in", num=10, stop=10, pause=2):
-        links[i] = j
-        i += 1
-        if i >= 10:
-            break
+    links = []
+    for j in search(search_query, tld="com", num=10, stop=10, pause=0.1):
+        if unique_link(j, domains):
+            links.append(j)
+            i += 1
+            if i >= 10:
+                break
     return links
 
 def create_viewpoint(links, i):
@@ -65,9 +74,11 @@ def input_form(request):
     return render(request, 'input_form.html', {'form': form})
 
 def analysis(request, instance_id):
+    domains = []
     instance = TextInput.objects.get(id=instance_id)
     myscraper = WebScrape()
     web_page = myscraper.fetch_url(instance.url)
+    unique_link(instance.url, domains)
     text = myscraper.parse_html_content(web_page)
 
     response = openai.Completion.create(
@@ -80,7 +91,7 @@ def analysis(request, instance_id):
     summary = response.choices[0].text if response.choices else "No summary generated."
     term = find_search_term(summary)[1]
     summary = find_search_term(summary)[0]
-    summary_links = create_links(term)
+    summary_links = create_links(term, domains)
     resources = summary_links
     primary = create_viewpoint(summary_links, 0)
     secondary = create_viewpoint(summary_links, 1)
