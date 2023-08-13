@@ -9,6 +9,38 @@
 
 /* INPUT_FORM.HTM ---------------------------------------------------------------------- L*/
 
+/* NAVBAR */
+.navbar {
+  position: absolute; 
+  top: 0;
+  right: 0;
+  padding-right: 70px;
+  padding-top: 2%;
+  filter: drop-shadow(4px 4px 10px rgb(111, 111, 111));
+}
+
+.home-link{
+  padding-right: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.about-link{
+  padding-right: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.contact-link{
+  padding-right: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+
 /* HEADER */
 
 .header-a {
@@ -24,43 +56,6 @@
   font-family: "Lexend", sans-serif;
 }
 
-/* FORM/INPUT */
-
-/* .input-group {
-  position: relative;
-}
-
-.input-box {
-  filter: drop-shadow(4px 4px 10px rgb(111, 111, 111));
-  color: rgba(232, 232, 232, 0.7);
-  width: 75%;
-  height: 50px;
-  margin: 3% 10%;
-  border: solid 1px white;
-  border-radius: 10px;
-}
-
-input::placeholder {
-  font-weight: bold;
-  opacity: 0.5;
-  color: black;
-  padding-left: 2%;
-  font-size: 12px;
-  font-family: 'Fira Sans Condensed', sans-serif;
-}
-
-input:focus {
-  outline: none;
-  border: 2px solid rgb(111, 111, 111, 0.8);
-  color: rgb(111, 111, 111, 0.8);
-  font-weight: bold;
-  font-size: 14px;
-  padding-left: 1%;
-}
-
-input:focus::placeholder {
-  color: transparent;
-} */
 .input-group {
   position: relative;
 }
@@ -309,7 +304,7 @@ button:focus {
 }
 .about-header h1{
   color: white;
-  font-family: "Darumadrop One", cursive;
+  font-family: "Lexend", sans-serif;
   padding-left: 100px;
 }
 
@@ -321,7 +316,7 @@ button:focus {
 .about-left-right h3{
   font-size: 24px;
   color: white;
-  font-family: "Darumadrop One", cursive;
+  font-family: "Lexend", sans-serif;
   margin: 0;
 }
 .about-left-right h5{
@@ -361,7 +356,7 @@ button:focus {
   margin: 0 12%;
   font-size: 22px;
   color: white;
-  font-family: "Darumadrop One", cursive;
+  font-family: "Lexend", sans-serif;
   filter: drop-shadow(4px 4px 10px rgb(111, 111, 111));
 
 }
@@ -381,7 +376,7 @@ button:focus {
 }
 .contact-header h1{
   color: white;
-  font-family: "Darumadrop One", cursive;
+  font-family: "Lexend", sans-serif;
   padding-left: 100px;
 
 }

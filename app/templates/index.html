@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Perspectify</title>
-    <link rel="stylesheet" href="static/css/style.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 </head>
-<body>
+<body style="background-image: url('{% static 'assets/background.png' %}'); background-repeat: repeat-y; background-size: cover; font-family: 'Fira Sans Condensed', sans-serif;">
 
     <div class="header-b">
         <div class="navbar">
@@ -93,18 +94,18 @@
                     <h3>Caleb Zheng</h3>
                     <h5>team mentor</h5>
                     <p> 
-                        <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                        <img src="{% static 'assets/email-icon.png' %}" alt="email icon" width="18px" style="padding-right: 10px">
                         zheng94@uw.edu
                     </p>
                     <p> 
                         <a href="https://www.linkedin.com/in/yang-caleb-zheng/" target="_blank" style="text-decoration: none; color:white;">
-                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            <img src="{% static 'assets/linkedin-icon.png' %}" alt="linkedin icon" width="18px" style="padding-right: 10px">
                             /in/yang-caleb-zheng/
                         </a>
                     </p>
                     <p> 
                         <a href="https://github.com/FATE4869" target="_blank" style="text-decoration: none; color:white;">
-                            <img src="static/assets/github-icon.png" alt="github icon" width="18px" style="padding-right: 10px">
+                            <img src="{% static 'assets/github-icon.png' %}" alt="github icon" width="18px" style="padding-right: 10px">
                             /FATE4869
                         </a>
                     </p>
@@ -114,18 +115,18 @@
                     <h3>Mateo Bodon</h3>
                     <h5>product manager, engineer</h5>
                     <p> 
-                        <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                        <img src="{% static 'assets/email-icon.png' %}" alt="email icon" width="18px" style="padding-right: 10px">
                         mateobodon@gmail.com
                     </p>
                     <p> 
                         <a href="https://www.linkedin.com/in/mateo-bodon-045131175" target="_blank" style="text-decoration: none; color:white;">
-                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            <img src="{% static 'assets/linkedin-icon.png' %}" alt="linkedin icon" width="18px" style="padding-right: 10px">
                             /in/mateo-bodon-045131175
                         </a>
                     </p>
                     <p> 
                         <a href="https://github.com/MateoBodon" target="_blank" style="text-decoration: none; color:white;">
-                            <img src="static/assets/github-icon.png" alt="github icon" width="18px" style="padding-right: 10px">
+                            <img src="{% static 'assets/github-icon.png' %}" alt="github icon" width="18px" style="padding-right: 10px">
                             /MateoBodon
                         </a>
                     </p>
@@ -135,18 +136,18 @@
                     <h3>Tramy Dong</h3>
                     <h5>engineer</h5>
                     <p> 
-                        <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                        <img src="{% static 'assets/email-icon.png' %}" alt="email icon" width="18px" style="padding-right: 10px">
                         td2748@barnard.edu
                     </p>
                     <p> 
                         <a href="https://www.linkedin.com/in/tramydong/" target="_blank" style="text-decoration: none; color:white;">
-                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            <img src="{% static 'assets/linkedin-icon.png' %}" alt="linkedin icon" width="18px" style="padding-right: 10px">
                             /in/tramydong/
                         </a>
                     </p>
                     <p> 
                         <a href="https://github.com/tramyd" target="_blank" style="text-decoration: none; color:white;">
-                            <img src="static/assets/github-icon.png" alt="github icon" width="18px" style="padding-right: 10px">
+                            <img src="{% static 'assets/github-icon.png' %}" alt="github icon" width="18px" style="padding-right: 10px">
                             /tramyd
                         </a>
                     </p>
@@ -159,12 +160,12 @@
                     <h3>Robel Kebede</h3>
                     <h5>engineer</h5>
                     <p> 
-                        <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                        <img src="{% static 'assets/email-icon.png' %}" alt="email icon" width="18px" style="padding-right: 10px">
                         robiemelaku@gmail.com
                     </p>
                     <p> 
                         <a href="https://www.linkedin.com/in/robel-m-kebede" target="_blank" style="text-decoration: none; color:white;">
-                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            <img src="{% static 'assets/linkedin-icon.png' %}" alt="linkedin icon" width="18px" style="padding-right: 10px">
                             /in/robel-m-kebede
                         </a>
                     </p>
@@ -174,13 +175,19 @@
                     <h3>Prannav Shankar</h3>
                     <h5>engineer</h5>
                     <p> 
-                        <img src="static/assets/email-icon.png" alt="email icon" width="20px" style="padding-right: 10px">
+                        <img src="{% static 'assets/email-icon.png' %}" alt="email icon" width="20px" style="padding-right: 10px">
                         prannav.shankar@gmail.com
                     </p>
                     <p> 
                         <a href="https://www.linkedin.com/in/prannav-shankar-346783229/" target="_blank" style="text-decoration: none; color:white;">
-                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            <img src="{% static 'assets/linkedin-icon.png' %}" alt="linkedin icon" width="18px" style="padding-right: 10px">
                             /in/prannav-shankar-346783229/
+                        </a>
+                    </p>
+                    <p> 
+                        <a href="https://github.com/prannav-s" target="_blank" style="text-decoration: none; color:white;">
+                            <img src="{% static 'assets/github-icon.png' %}" alt="github icon" width="18px" style="padding-right: 10px">
+                            /prannav-s
                         </a>
                     </p>
                 </div>
@@ -189,16 +196,12 @@
                     <h3>Brandon Smith</h3>
                     <h5>engineer</h5>
                         <p> 
-                            <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                            <img src="{% static 'assets/email-icon.png' %}" alt="email icon" width="18px" style="padding-right: 10px">
                             brandonman78@gmail.com 
                         </p>
                         <p> 
-                            <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
-                            bs894@scarletmail.rutgers.ed
-                        </p>
-                        <p> 
                             <a href="https://www.linkedin.com/in/brandon-smith-825b0a192" target="_blank" style="text-decoration: none; color:white;">
-                                <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                                <img src="{% static 'assets/linkedin-icon.png' %}" alt="linkedin icon" width="18px" style="padding-right: 10px">
                                 /in/brandon-smith-825b0a192
                             </a>
                         </p>
@@ -215,7 +218,7 @@
         <a href="https://mysurestart.com/" target="blank_">
           <img
             class="footer-item-b"
-            src="static/assets/SureStartFutureMakers.png"
+            src="{% static 'assets/SureStartFutureMakersMIT.png' %}"
             alt="SureStart logo"
         /></a>
       </div>
