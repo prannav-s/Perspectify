@@ -1,62 +1,48 @@
-{% comment %} <!DOCTYPE html>
-<html>
-<head>
-    <title>Link Input Form</title>
-</head>
-<body>
-    <h1>INPUT SOURCE TO BE ANALYZED</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
-</body>
-</html> {% endcomment %}
-{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
     <title>Link Input Form</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <link rel="stylesheet" href="static/css/style.css" />
   </head>
-  <body style="background-image: url('{% static 'assets/background.png' %}'); background-repeat: repeat-y; background-size: cover; font-family: 'Fira Sans Condensed', sans-serif;">
+  <body>
+    <div class="navbar">
+      <a class="home-link" href="{% url 'input_form' %}">HOME</a>
+      <a class="about-link" href="{% url 'index' %}#about">ABOUT</a>
+      <a class="contact-link" href="{% url 'index' %}#contact">CONTACT</a>       
+    </div>
 
     <div class="header-a">
-      <a class="project-name-a" href="input_form.html"> PERSPECTIFY </a>
+      <p class="project-name-a">PERSPECTIFY</p>
     </div>
 
     <form method="post">
-      {% csrf_token %}
-      
-      <!-- Custom-styled input -->
-      <input
+      <div class="input-button">
+        <input
           class="input-box"
-          name="url"
-          type="url"
+          name="input-box"
+          type="text"
           placeholder="INPUT SOURCE URL TO BE ANALYZED"
           required=""
-      />
-      
-      <!-- Django form field -->
-      {{ form.url_field.label_tag }}
-      {{ form.url_field }}
-      
-      <!-- Submit button -->
-      <button type="submit" class="input-button">
-        <img
-          src="{% static 'assets/input-button.png' %}"
-          alt="input button"
-          width="65%"
-          height="65%"
         />
-      </button>
+        <button type="submit" class="input-button">
+          <img
+            src="static/assets/input-button.png"
+            alt="input button"
+            width="65%"
+            height="65%"
+          />
+        </button>
+      </sinput>
+        <!-- {% csrf_token %} {{ form.as_p }} -->
+      </div>
     </form>
 
     <div class="footer-a">
       <a href="https://mysurestart.com/" target="blank_">
         <img
           class="footer-item-a"
-          src="{% static 'assets/SureStartFutureMakersMIT.png' %}"
+          src="static/assets/SureStartFutureMakersMIT.png"
           alt="SureStart logo"
       /></a>
     </div>

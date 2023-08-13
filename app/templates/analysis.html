@@ -32,6 +32,11 @@
   <body style="background-image: url('{% static 'assets/background.png' %}'); background-repeat: repeat-y; background-size: cover; font-family: 'Fira Sans Condensed', sans-serif;">
 
     <div class="header-b">
+      <div class="navbar">
+        <a class="home-link" href="{% url 'input_form' %}">HOME</a>
+        <a class="about-link" href="{% url 'index' %}#about">ABOUT</a>
+        <a class="contact-link" href="{% url 'index' %}#contact">CONTACT</a>        
+      </div>
       <a class="project-name-b" href="{% url 'input_form' %}"> PERSPECTIFY </a>
     </div>
 

@@ -295,6 +295,144 @@ button:focus {
   border-radius: 5px;
   transition: background-color 0.3s;
 }
+/* INDEX PAGE (ABOUT AND CONTACT) -----------------------------------------------------*/
+
+
+/* ABOUT */
+.about-header {
+  margin: 3%;
+}
+.about-header p {
+  margin: 0 10%;
+  color: white;
+  font-weight: bold;
+}
+.about-header h1{
+  color: white;
+  font-family: "Darumadrop One", cursive;
+  padding-left: 100px;
+}
+
+.about-left-right {
+  margin: 0 12%;
+  display: flex;
+}
+
+.about-left-right h3{
+  font-size: 24px;
+  color: white;
+  font-family: "Darumadrop One", cursive;
+  margin: 0;
+}
+.about-left-right h5{
+  font-size: 16px;
+  font-weight: bold;
+}
+.about-left-right h5, li{
+  color: white;
+}
+.about-left-side {
+  float: left;
+  width: 50%;
+}
+
+.about-right-side {
+  float: right;
+  width: 50%;
+}
+
+.about-section {
+  filter: drop-shadow(4px 4px 10px rgb(111, 111, 111));
+
+}
+
+.about-header p {
+  margin: 0 10%;
+  color: white;
+  font-weight: bold;
+}
+.misc-info p {
+  margin: 0 12%;
+  color: white;
+  font-weight: bold;
+  padding-left: 100px;
+}
+.misc-info h5{
+  margin: 0 12%;
+  font-size: 22px;
+  color: white;
+  font-family: "Darumadrop One", cursive;
+  filter: drop-shadow(4px 4px 10px rgb(111, 111, 111));
+
+}
+
+/* CONTACT */
+
+.contact-header {
+  margin: 3%;
+  filter: drop-shadow(4px 4px 10px rgb(111, 111, 111));
+
+}
+.contact-header p {
+  margin: 0 10%;
+  color: white;
+  font-weight: bold;
+
+}
+.contact-header h1{
+  color: white;
+  font-family: "Darumadrop One", cursive;
+  padding-left: 100px;
+
+}
+
+.contact-card{
+  margin: 0 10px;
+  background-color: rgba(255, 255, 255, 0.20);
+  border-radius: 10px;
+  padding: 10px 40px;
+  color: white;
+  filter: drop-shadow(4px 4px 10px rgb(111, 111, 111));
+}
+.contact-row-a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px;
+
+}
+
+.contact-row-b {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 10px;
+  text-align: center;
+}
+
+.contact-columns{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+
+}
+
+.contact-card h3{
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contact-card h5{
+  font-size: 16px;
+  text-align: center;
+}
+
+.contact-card p{
+  font-size: 14px;
+}
 
 /* Optional transition for the button's background color */
 .back-button:hover {

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Perspectify</title>
+    <link rel="stylesheet" href="static/css/style.css" />
+</head>
+<body>
+
+    <div class="header-b">
+        <div class="navbar">
+          <a class="home-link" href="{% url 'input_form' %}">HOME</a>
+          <a class="about-link" href="{% url 'index' %}#about">ABOUT</a>
+          <a class="contact-link" href="{% url 'index' %}#contact">CONTACT</a>          
+        </div>
+        <a class="project-name-b" href="{% url 'input_form' %}"> PERSPECTIFY </a>
+      </div>
+  
+
+
+    <div id="about" class="about-section">
+        <div class="about-header">
+            <h1>ABOUT</h1>
+            <p>Perspectify is a tool designed to make the consumption and understanding of online articles easier and more efficient. 
+                The application utilizes advanced natural language processing techniques to summarize articles, provide different 
+                perspectives on the topic, and identify relevant articles for further investigation. This project is designed to help 
+                readers get the most out of their online reading experience by reducing the time and effort required to comprehend 
+                complex articles, and by offering a multi-faceted view on the subject matter.
+            </p>
+        </div>
+        <div class="about-left-right">
+            <div class="about-left-side">
+                <h3>Problem - The Information Silo Trap</h3>
+                <h5>Information Silos: </h5>
+                <ul>
+                    <li>Individuals rely on a limited list of sources → resulting in narrow perspectives.</li>
+                    <li>Driven by algorithms, personal biases, and selective exposure.</li>
+                </ul>
+                <h5>Consequences</h5>
+                <ul>
+                    <li>Biased opinions, uninformed stances.</li>
+                    <li>Polarization of views.</li>
+                    <li>Misinformation and lack of holistic understanding.</li>
+                </ul>
+            </div>
+            <div class="about-right-side">
+                <h3>Solution - Breaking the Silos with PERSPECTIFY</h3>
+                <h5>Dynamic Analysis:</h5>
+                <ul>
+                    <li>Utilizes OpenAI API for deep content understanding.</li>
+                    <li>Extracts main viewpoints and identifies nuances.</li>
+                </ul>
+                <h5>Broadening Horizons:</h5>
+                <ul>
+                    <li>Provides alternative perspectives on the same topic.</li>
+                    <li>inks to diverse sources for extended reading.</li>
+                </ul>
+                <h5>User-Friendly Interface:</h5>
+                <ul>
+                    <li>PSimple article link input.</li>
+                    <li>Clear, concise outputs: summary, main viewpoint, alternative views.</li>
+                </ul>
+                <h5>Beyond Just News:</h5>
+                <ul>
+                    <li>Works on research articles, opinion pieces, blogs, and more.</li>
+                    <li>Encourages users to explore topics beyond their comfort zone.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <div class="misc-info">
+        <h5>Repository: </h5>
+        <br>
+        <p style="padding-left: 30px;">https://github.com/prannav-s/Perspectify</p>
+        <br>
+        <h5>SureStart Create-A-Thon Presentation:</h5>
+        <br>
+        <p style="padding-left: 30px;">https://docs.google.com/presentation/d/1fuemBZ5a4uEIN50C7QPhBS9_fxONXmw-4vuOYbugUnU/edit#slide=id.g1e576d077de_7_43</p>
+    </div>
+    <br>
+    <br>
+
+    <div class="contact-section">
+        <div id="contact" class="contact-header">
+            <h1>CONTACT</h1>
+            <p>Meet the team! Send questions, comments, suggestions, etc. our way, we are happy to connect with you.</p>
+        </div>
+        <div class="contact-columns">
+            <div class="contact-row">
+            <div class="contact-row-a">
+                <div class="caleb contact-card">
+                    <h3>Caleb Zheng</h3>
+                    <h5>team mentor</h5>
+                    <p> 
+                        <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                        zheng94@uw.edu
+                    </p>
+                    <p> 
+                        <a href="https://www.linkedin.com/in/yang-caleb-zheng/" target="_blank" style="text-decoration: none; color:white;">
+                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            /in/yang-caleb-zheng/
+                        </a>
+                    </p>
+                    <p> 
+                        <a href="https://github.com/FATE4869" target="_blank" style="text-decoration: none; color:white;">
+                            <img src="static/assets/github-icon.png" alt="github icon" width="18px" style="padding-right: 10px">
+                            /FATE4869
+                        </a>
+                    </p>
+                </div>
+
+                <div class="mateo contact-card">
+                    <h3>Mateo Bodon</h3>
+                    <h5>product manager, engineer</h5>
+                    <p> 
+                        <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                        mateobodon@gmail.com
+                    </p>
+                    <p> 
+                        <a href="https://www.linkedin.com/in/mateo-bodon-045131175" target="_blank" style="text-decoration: none; color:white;">
+                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            /in/mateo-bodon-045131175
+                        </a>
+                    </p>
+                    <p> 
+                        <a href="https://github.com/MateoBodon" target="_blank" style="text-decoration: none; color:white;">
+                            <img src="static/assets/github-icon.png" alt="github icon" width="18px" style="padding-right: 10px">
+                            /MateoBodon
+                        </a>
+                    </p>
+                </div>
+
+                <div class="tramy contact-card">
+                    <h3>Tramy Dong</h3>
+                    <h5>engineer</h5>
+                    <p> 
+                        <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                        td2748@barnard.edu
+                    </p>
+                    <p> 
+                        <a href="https://www.linkedin.com/in/tramydong/" target="_blank" style="text-decoration: none; color:white;">
+                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            /in/tramydong/
+                        </a>
+                    </p>
+                    <p> 
+                        <a href="https://github.com/tramyd" target="_blank" style="text-decoration: none; color:white;">
+                            <img src="static/assets/github-icon.png" alt="github icon" width="18px" style="padding-right: 10px">
+                            /tramyd
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="contact-row-b">
+                
+                <div class="robel contact-card">
+                    <h3>Robel Kebede</h3>
+                    <h5>engineer</h5>
+                    <p> 
+                        <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                        robiemelaku@gmail.com
+                    </p>
+                    <p> 
+                        <a href="https://www.linkedin.com/in/robel-m-kebede" target="_blank" style="text-decoration: none; color:white;">
+                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            /in/robel-m-kebede
+                        </a>
+                    </p>
+                </div>
+
+                <div class="prannav contact-card">
+                    <h3>Prannav Shankar</h3>
+                    <h5>engineer</h5>
+                    <p> 
+                        <img src="static/assets/email-icon.png" alt="email icon" width="20px" style="padding-right: 10px">
+                        prannav.shankar@gmail.com
+                    </p>
+                    <p> 
+                        <a href="https://www.linkedin.com/in/prannav-shankar-346783229/" target="_blank" style="text-decoration: none; color:white;">
+                            <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                            /in/prannav-shankar-346783229/
+                        </a>
+                    </p>
+                </div>
+
+                <div class="brandon contact-card">
+                    <h3>Brandon Smith</h3>
+                    <h5>engineer</h5>
+                        <p> 
+                            <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                            brandonman78@gmail.com 
+                        </p>
+                        <p> 
+                            <img src="static/assets/email-icon.png" alt="email icon" width="18px" style="padding-right: 10px">
+                            bs894@scarletmail.rutgers.ed
+                        </p>
+                        <p> 
+                            <a href="https://www.linkedin.com/in/brandon-smith-825b0a192" target="_blank" style="text-decoration: none; color:white;">
+                                <img src="static/assets/linkedin-icon.png" alt="linkedin icon" width="18px" style="padding-right: 10px">
+                                /in/brandon-smith-825b0a192
+                            </a>
+                        </p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-b">
+        <a href="https://mysurestart.com/" target="blank_">
+          <img
+            class="footer-item-b"
+            src="static/assets/SureStartFutureMakers.png"
+            alt="SureStart logo"
+        /></a>
+      </div>
+</body>
+</html>
