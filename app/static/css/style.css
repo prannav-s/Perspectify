@@ -280,7 +280,7 @@ button:focus {
 
 .back-button {
   position: absolute;
-  top: 50px;
+  top: 150px;
   right: 90px;
   display: inline-block;
   padding: 10px 20px;
