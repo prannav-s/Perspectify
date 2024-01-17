@@ -1,0 +1,7 @@
+django==4.2.4
+google==3.0.0
+bs4==0.0.1
+webscrape==0.0.1
+openai==0.28.0
+textinput==0.2.0
+views==0.3

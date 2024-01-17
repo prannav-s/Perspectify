@@ -82,7 +82,7 @@ def analysis(request, instance_id):
     text = myscraper.parse_html_content(web_page)
 
     response = openai.Completion.create(
-        model="text-davinci-003",
+        model="davinci-002",
         prompt=generate_prompt(text),
         temperature=0.0,
         max_tokens=500,  # Adjust this value as needed
