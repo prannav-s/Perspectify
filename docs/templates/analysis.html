@@ -1,0 +1,103 @@
+{% comment %} <!DOCTYPE html>
+<html>
+<head>
+    <title>Source Analysis</title>
+</head>
+<body>
+    <h1>Source Analysis</h1>
+    <p><strong>Original Source:</strong></p>
+    <p>{{ instance.url }}</p>
+    
+    <p><strong>Summary:</strong></p>
+    <p>{{ analyzed_output }}</p>
+
+    <p><strong>Primary Viewpoint:</strong></p>
+    <p>{{ primary }}</p>
+
+    <p><strong>Secondary Viewpoint:</strong></p>
+    <p>{{ secondary }}</p>
+
+    <p><strong>Additional sources:</strong></p>
+    <p>{{ resources }}</p>
+    
+</body>
+</html> {% endcomment %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Source Analysis</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  <body style="background-image: url('{% static 'assets/background.png' %}'); background-repeat: repeat-y; background-size: cover; font-family: 'Fira Sans Condensed', sans-serif;">
+
+    <div class="header-b">
+      <div class="navbar">
+        <a class="home-link" href="{% url 'input_form' %}">HOME</a>
+        <a class="about-link" href="{% url 'index' %}#about">ABOUT</a>
+        <a class="contact-link" href="{% url 'index' %}#contact">CONTACT</a>        
+      </div>
+      <a class="project-name-b" href="{% url 'input_form' %}"> PERSPECTIFY </a>
+    </div>
+
+    <div class="main-content">
+      <div class="heading-content">
+        <h1>Source Analysis</h1>
+        <p><strong>Original Source: <a href="{{ instance.url }}">{{ instance.url }}</a></strong></p>
+      </div>
+      <div class="summay-content item">
+        <h2>Summary</h2>
+        <div class="summary-box">
+          <p>
+            {{ summary }} 
+          </p>
+        </div>
+      </div>
+
+      <div class="viewpoints-content item">
+        <div class="viewpoints-text">
+          <div class="primary-text">
+            <h2>Primary Viewpoints</h2>
+          </div>
+          <div class="secondary-text">
+            <h2>Secondary Viewpoints</h2>
+          </div>
+        </div>
+        <div class="viewpoints-box">
+          <div class="primary-box">
+            <p>
+              {{ primary }} 
+            </p>
+          </div>
+          <div class="secondary-box">
+            <p>
+              {{ secondary }} 
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="additional-content item">
+        <h2>Additional Sources:</h2>
+        <div class="resources-box">
+            <ul>
+              {% for resource in resources %}
+                  <li><a href="{{ resource }}">{{ resource }}</a></li>
+              {% endfor %}
+            </ul>
+        </div>
+      </div>
+    
+    </div>
+
+    <div class="footer-b">
+      <a href="https://mysurestart.com/" target="blank_">
+        <img
+          class="footer-item-b"
+          src="{% static 'assets/SureStartFutureMakersMIT.png' %}"
+          alt="SureStart logo"
+      /></a>
+    </div>
+    <a href="{% url 'input_form' %}" class="back-button">Reset Prompt</a>
+  </body>
+</html>
